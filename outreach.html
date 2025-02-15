@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outreach Portal - Virtual Labs</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/leaflet/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet/dist/leaflet.css">
+    <style>
+        .stats-container {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+            background: linear-gradient(45deg, #d9a7c7, #fffcdc);
+            text-align: center;
+        }
+        .stat-box {
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
+            background: white;
+            min-width: 150px;
+        }
+        #map {
+            height: 500px;
+            margin: 20px;
+        }
+        .summary {
+            text-align: center;
+            padding: 20px;
+            background-color: #f8f9fa;
+            margin-top: 20px;
+            box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .footer {
+            background-color: #001f3f;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        .footer a {
+            color: white;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        .btn-custom {
+            background-color: blue;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            transition: box-shadow 0.3s ease-in-out;
+        }
+        .btn-custom:hover {
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="home.html">
+                <img src="logo_oflab.jpg" alt="Virtual Labs Logo" height="40">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="home.html">HOME</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">ABOUT US</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="outreach.html">OUTREACH PORTAL</a></li>
+                    <li class="nav-item"><a class="nav-link" href="show-institutes.html">PARTICIPATING INSTITUTES</a></li>
+                    <li class="nav-item"><a class="nav-link" href="nmeict.html">NMEICT</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">CONTACT US</a></li>
+                    <li class="nav-item"><a class="btn-custom" href="sign.html">Sign in</a></li>
+                    <li class="nav-item"><a class="btn-custom" href="sign.html">Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="stats-container">
+        <div class="stat-box">
+            <h2 id="nodal-centres">1707</h2>
+            <p>Nodal Centres</p>
+        </div>
+        <div class="stat-box">
+            <h2 id="users-trained">13L+</h2>
+            <p>Users Trained</p>
+        </div>
+        <div class="stat-box">
+            <h2 id="workshops">19266</h2>
+            <p>Workshops</p>
+        </div>
+        <div class="stat-box">
+            <h2 id="Shareholders">53L+</h2>
+            <p>Shareholders</p>
+        </div>
+        <div class="stat-box">
+            <h2 id="Sign in ">20L+</h2>
+            <p>Usages</p>
+        </div>
+    </div>
+    <div class="stat-box">
+    <div id="map"></div>
+</div>
+    <div class="stats-container" >
+        <h4>About the Outreach Portal</h4>
+        <p></p>
+        <p>The Outreach Portal of Virtual Labs is dedicated to expanding access to high-quality educational resources across India. With a growing network of nodal centers, thousands of trained users, and numerous workshops, we aim to revolutionize learning through technology. Our interactive map highlights the premier IIT institutions contributing to this initiative.</p>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 Virtual Labs. All rights reserved.</p>
+        <p><a href="contact.html">Contact Us</a> | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+        <p>Stay Connected: 
+            <a href="#">LinkedIn</a> | 
+            <a href="#">Facebook</a> | 
+            <a href="#">Instagram</a> | 
+            <a href="#">Discord</a>
+        </p>
+    </footer>
+
+    <script>
+        // Auto-increment statistics every hour
+        function updateStats() {
+            document.getElementById("nodal-centres").textContent = parseInt(document.getElementById("nodal-centres").textContent) + 100;
+            document.getElementById("users-trained").textContent = parseInt(document.getElementById("users-trained").textContent) + 100;
+            document.getElementById("workshops").textContent = parseInt(document.getElementById("workshops").textContent) + 100;
+        }
+        setInterval(updateStats, 3600000); // Update every hour
+
+        // Initialize map
+        var map = L.map('map').setView([20.5937, 78.9629], 5);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // IIT College locations
+        var iitLocations = [
+            { name: "IIT Bombay", coords: [19.1334, 72.9133] },
+            { name: "IIT Delhi", coords: [28.5450, 77.1926] },
+            { name: "IIT Madras", coords: [12.9916, 80.2336] },
+            { name: "IIT Kharagpur", coords: [22.3149, 87.3105] },
+            { name: "IIT Kanpur", coords: [26.5123, 80.2329] },
+            { name: "IIT Roorkee", coords: [29.8645, 77.8964] },
+            { name: "IIT Guwahati", coords: [26.1876, 91.6918] }
+        ];
+
+        iitLocations.forEach(function(iit) {
+            L.marker(iit.coords).addTo(map).bindPopup(iit.name);
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
