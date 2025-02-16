@@ -1,44 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Virtual Labs</title>
+
+    <title>Virtual Labs</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
     <style>
+      
         .hero-section {
-            background-color: gray;
-            color: skyblue;
+            background-color: #a4c6dd;
+            color: #102161;
             padding: 0.5rem 0;
             text-align: center;
         }
-        .about-section {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 40px;
+        .slideshow-container {
+            position: relative;
+            max-width: 90%;
+            margin: auto;
+            overflow: hidden;
         }
-        .about-section:nth-child(even) {
-            flex-direction: row-reverse;
+        .slideshow-container img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: none;
         }
-        .about-image {
-            width: 45%;
-            height: auto;
+        .slideshow-container img.active {
+            display: block;
+            transition: opacity 1s ease-in-out;
         }
-        .about-text {
-            width: 45%;
-            padding: 20px;
-            background-color: #f8f9fa;
-            border-radius: 10px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        .slideshow-container .prev, .slideshow-container .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 50%;
         }
-        stats-container {
-            display: flex;
-            justify-content: space-around;
-            padding: 20px;
-            background: linear-gradient(45deg, #d9a7c7, #fffcdc);
+        .slideshow-container .prev { left: 10px; }
+        .slideshow-container .next { right: 10px; }
+        .scrolling-logos {
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            background: #f8f9fa;
+            padding: 10px 0;
+        }
+        .labs-list a {
+            padding: 15px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
             text-align: center;
+            min-width: 200px;
+        }
+        .scrolling-logos div {
+            display: inline-block;
+            animation: scrollLeft 10s linear infinite;
+        }
+        .scrolling-logos img {
+            height: 50px;
+            margin: 0 15px;
+        }
+        @keyframes scrollLeft {
+            from { transform: translateX(100%); }
+            to { transform: translateX(-100%); }
         }
         .btn-custom {
             background-color: blue;
@@ -46,6 +75,7 @@
             padding: 10px 20px;
             border: none;
             border-radius: 5px;
+            margin: 5px;
             transition: box-shadow 0.3s ease-in-out;
         }
         .btn-custom:hover {
@@ -64,65 +94,136 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="home.html">HOME</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="about.html">ABOUT US</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="home.html">HOME</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">ABOUT US</a></li>
                     <li class="nav-item"><a class="nav-link" href="outreach.html">OUTREACH PORTAL</a></li>
                     <li class="nav-item"><a class="nav-link" href="show-institutes.html">PARTICIPATING INSTITUTES</a></li>
-                    <li class="nav-item"><a class="nav-link" href="nmeict.ac.in">NMEICT</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html">CONTACT US</a></li>
-                    <li class="nav-item"><a class="btn-custom" href="sign.html">Sign in</a></li>
-                    <li class="nav-item"><a class="btn-custom" href="sign.html">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sign.html">Sign in</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sign.html">Login</a></li>
                 </ul>
             </div>
         </div>
     </nav>
-
     <div class="hero-section">
-        <h1>About Virtual Labs</h1>
-        <p>
-            An Initiative of
-            Ministry of Education
-            Under the National Mission on Education through ICT
-        </p>
-        <p>Empowering students with hands-on experience in a virtual environment.</p>
+        <h1>IIIT Hyderabad</h1>
+        <p>Explore global opportunities to grow, showcase skills, and get hired.</p>
     </div>
-<div class="stats-container">
-    <div class="container mt-5">
-        <div class="about-section">
-            <img src="virtual labs3.jpeg" class="about-image" alt="About Image 1">
-            <div class="about-text">
-                <h2>Our Mission</h2>
-                <p>The Virtual Labs project aims to bridge the gap in laboratory education by providing remote access to high-quality lab experiments for students, researchers, and educators. Our mission is to enable experiential learning in science and engineering through interactive, web-enabled experiments, ensuring that every learner, regardless of location or infrastructure limitations, can gain practical exposure to complex concepts. </div>
-        </div>
+    
+    <div class="slideshow-container">
+        <p></p>
+        <img src="homelogo3.jpg" class="active">
+        <img src="homelogo2.webp">
+        <img src="homeimg1.jpeg">
+        <img src="homelogo3.jpg">
+        <img src="virtual labs6.png">
+        <img src="homelogo5.jpeg">
+        <img src="homelogo6.jpeg">
+        <img src="homelogo7.jpg">
+        <img src="virtual labs2.jpeg">
+        <span class="prev" onclick="changeSlide(-1)">&#10094;</span>
+        <span class="next" onclick="changeSlide(1)">&#10095;</span>
+    </div>
+   
 
-        <div class="about-section">
-            <img src="virtual labs5.png" class="about-image" alt="About Image 2">
-            <div class="about-text">
-                <h2>Our Vision</h2>
-                <p>We envision a future where technology-driven education removes barriers to hands-on learning. By leveraging ICT-based remote experimentation, we strive to make laboratory education universally accessible, fostering innovation, curiosity, and collaboration among students, researchers, and academic institutions. Our goal is to create an ecosystem that enhances learning experiences and supports the academic growth of future scientists and engineers.  </p>
+    <div class="container mt-4" id="show-institutes">
+        <div class="row g-4">
+            <div class="labs-list">
+                <div class="card text-white text-center bg-success">
+                    <a href="show-institutes.html">Problem Solving Lab</a>
+                </div>
+            </div>
+            <div class="labs-list">
+                <div class="card text-white text-center bg-primary">
+                    <a href="show-institutes.html">Structural Dynamics Lab</a>
+                </div>
+            </div>
+            <div class="labs-list">
+                <div class="card text-white text-center bg-warning">
+                    <a href="show-institutes.html">Hydraulics and Fluid Mechanics Lab</a>
+                </div>
+            </div>
+            <div class="labs-list">
+                <div class="card text-white text-center bg-danger">
+                    <a href="show-institutes.html">Quantum Chemistry Lab</a>
+                </div>
+            </div>
+            <div class="labs-list">
+                <div class="card text-white text-center bg-info">
+                    <a href="show-institutes.html">Data Structures - I</a>
+                </div>
+            </div>
+            <div class="labs-list">
+                <div class="card text-white text-center bg-secondary">
+                    <a href="show-institutes.html">Data Structures - II</a>
+                </div>
+            </div>
+            <div class="labs-list">
+                <div class="card text-white text-center bg-secondary">
+                    <a href="show-institutes.html">Artificial Neural Networks Lab</a>
+          
+        
+                </div>
+            </div>
+            <div class="labs-list">
+                <div class="card text-white text-center bg-secondary">
+                    <a href="show-institutes.html">Python Programming Lab - Advanced Topics (New)</a>
+                </div>
             </div>
         </div>
-
-        <div class="about-section">
-            <img src="virtual labs6.png" class="about-image" alt="About Image 3">
-            <div class="about-text">
-                <h2>Why Choose Us?</h2>
-                <p>Over 100+ Virtual Labs with 700+ experiments covering various science and engineering disciplines.
-                    Inclusivity & Outreach – Beneficial for students without access to advanced lab facilities, high-school students exploring STEM, and researchers seeking collaborative experimentation.
-                    Government-Backed Initiative – Developed under the Ministry of Education, Government of India, ensuring quality, credibility, and alignment with academic standards.
-                    Enhancing Teaching & Learning – Faculty members and institutions can integrate these virtual labs into their curriculum, enriching their teaching methodologies with cutting-edge educational tools. </p> </div>
+    </div>
+    <div class="scrolling-logos">
+        <div>
+            <img src="logo1.png">
+            <img src="logo2.png">
+            <img src="logo3.png">
+            <img src="logo4.png">
+            <img src="logo5.png">
+            <img src="logo6.png">
+            <img src="logo7.jpg">
+            <img src="logo8.png">
+            <img src="logo9.png">
+            <img src="logo1.png">
+            <img src="logo2.png">
+            <img src="logo3.png">
+            <img src="logo4.png">
+            <img src="logo5.png">
+            <img src="logo6.png">
+            <img src="logo7.jpg">
+            <img src="logo8.png">
+            <img src="logo9.png">
+            <img src="logo1.png">
+            <img src="logo2.png">
+            <img src="logo3.png">
+            <img src="logo4.png">
+            <img src="logo5.png">
+            <img src="logo6.png">
+            <img src="logo7.jpg">
+            <img src="logo8.png">
+            <img src="logo9.png">
         </div>
     </div>
-</div>
     <div class="contact-section text-center p-5 bg-dark text-white mt-5">
         <h2>Contact Us</h2>
-        <p><strong>Venkatesh Choppella , Associate Professor ,Department of Computer Science & Engineering </strong></p>
+        <p><strong>Venkatesh Choppella, Associate Professor</strong></p>
         <p>IIIT HYDERABAD</p>
-        <p>+914066531000 Ext:1443</p>
         <p>Email: <a href="mailto:venkatesh.choppella@iiit.ac.in" class="text-white">venkatesh.choppella@iiit.ac.in</a></p>
     </div>
+    
+    <script>
+        let images = document.querySelectorAll(".slideshow-container img");
+        let index = 0;
 
+        function changeSlide(step) {
+            images[index].classList.remove("active");
+            index = (index + step + images.length) % images.length;
+            images[index].classList.add("active");
+        }
+        
+        setInterval(() => changeSlide(1), 5000);
+    </script>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
