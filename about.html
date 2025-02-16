@@ -2,84 +2,44 @@
 <html lang="en">
 <head>
 
-    <title>Virtual Labs</title>
+    <title>About Us - Virtual Labs</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    
     <link rel="stylesheet" href="styles.css">
     <style>
-      
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            font-family: Arial, sans-serif;
+        }
         .hero-section {
             background-color: #a4c6dd;
             color: #102161;
             padding: 0.5rem 0;
             text-align: center;
         }
-        .slideshow-container {
-            position: relative;
-            max-width: 90%;
-            margin: auto;
-            overflow: hidden;
-        }
-        .slideshow-container img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            display: none;
-        }
-        .slideshow-container img.active {
-            display: block;
-            transition: opacity 1s ease-in-out;
-        }
-        .slideshow-container .prev, .slideshow-container .next {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.5);
-            color: white;
-            padding: 10px;
-            cursor: pointer;
-            border-radius: 50%;
-        }
-        .slideshow-container .prev { left: 10px; }
-        .slideshow-container .next { right: 10px; }
-        .scrolling-logos {
-            width: 100%;
-            overflow: hidden;
-            white-space: nowrap;
-            background: #f8f9fa;
-            padding: 10px 0;
-        }
-        .labs-list a {
-            padding: 15px;
-            background-color: #007bff;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
+        .about-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             text-align: center;
-            min-width: 200px;
+            padding: 40px 20px;
+            max-width: 900px;
+            margin: auto;
         }
-        .scrolling-logos div {
-            display: inline-block;
-            animation: scrollLeft 10s linear infinite;
-        }
-        .scrolling-logos img {
-            height: 50px;
-            margin: 0 15px;
-        }
-        @keyframes scrollLeft {
-            from { transform: translateX(100%); }
-            to { transform: translateX(-100%); }
+        .about-image {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 20px;
         }
         .btn-custom {
-            background-color: blue;
+            background-color: #1976d2;
             color: white;
             padding: 10px 20px;
             border: none;
             border-radius: 5px;
-            margin: 5px;
-            transition: box-shadow 0.3s ease-in-out;
-        }
-        .btn-custom:hover {
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
         }
     </style>
 </head>
@@ -94,8 +54,8 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link active" href="home.html">HOME</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">ABOUT US</a></li>
+                    <li class="nav-item"><a class="nav-link" href="home.html">HOME</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="about.html">ABOUT US</a></li>
                     <li class="nav-item"><a class="nav-link" href="outreach.html">OUTREACH PORTAL</a></li>
                     <li class="nav-item"><a class="nav-link" href="show-institutes.html">PARTICIPATING INSTITUTES</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html">CONTACT US</a></li>
@@ -106,124 +66,32 @@
         </div>
     </nav>
     <div class="hero-section">
-        <h1>IIIT Hyderabad</h1>
-        <p>Explore global opportunities to grow, showcase skills, and get hired.</p>
+        <h1>About Virtual Labs</h1>
+        <p>Empowering students with hands-on experience in a virtual environment.</p>
     </div>
-    
-    <div class="slideshow-container">
-        <p></p>
-        <img src="homelogo3.jpg" class="active">
-        <img src="homelogo2.webp">
-        <img src="homeimg1.jpeg">
-        <img src="homelogo3.jpg">
-        <img src="virtual labs6.png">
-        <img src="homelogo5.jpeg">
-        <img src="homelogo6.jpeg">
-        <img src="homelogo7.jpg">
-        <img src="virtual labs2.jpeg">
-        <span class="prev" onclick="changeSlide(-1)">&#10094;</span>
-        <span class="next" onclick="changeSlide(1)">&#10095;</span>
-    </div>
-   
-
-    <div class="container mt-4" id="show-institutes">
-        <div class="row g-4">
-            <div class="labs-list">
-                <div class="card text-white text-center bg-success">
-                    <a href="show-institutes.html">Problem Solving Lab</a>
-                </div>
-            </div>
-            <div class="labs-list">
-                <div class="card text-white text-center bg-primary">
-                    <a href="show-institutes.html">Structural Dynamics Lab</a>
-                </div>
-            </div>
-            <div class="labs-list">
-                <div class="card text-white text-center bg-warning">
-                    <a href="show-institutes.html">Hydraulics and Fluid Mechanics Lab</a>
-                </div>
-            </div>
-            <div class="labs-list">
-                <div class="card text-white text-center bg-danger">
-                    <a href="show-institutes.html">Quantum Chemistry Lab</a>
-                </div>
-            </div>
-            <div class="labs-list">
-                <div class="card text-white text-center bg-info">
-                    <a href="show-institutes.html">Data Structures - I</a>
-                </div>
-            </div>
-            <div class="labs-list">
-                <div class="card text-white text-center bg-secondary">
-                    <a href="show-institutes.html">Data Structures - II</a>
-                </div>
-            </div>
-            <div class="labs-list">
-                <div class="card text-white text-center bg-secondary">
-                    <a href="show-institutes.html">Artificial Neural Networks Lab</a>
-          
-        
-                </div>
-            </div>
-            <div class="labs-list">
-                <div class="card text-white text-center bg-secondary">
-                    <a href="show-institutes.html">Python Programming Lab - Advanced Topics (New)</a>
-                </div>
-            </div>
+    <div class="container">
+        <div class="about-section">
+            <img src="virtual labs3.jpeg" class="about-image" alt="Mission">
+            <h2>Our Mission</h2>
+            <p>Providing high-quality lab experiments remotely for students and researchers.</p>
+        </div>
+        <div class="about-section">
+            <img src="virtual labs5.png" class="about-image" alt="Vision">
+            <h2>Our Vision</h2>
+            <p>Making laboratory education accessible through ICT-based experimentation.</p>
+        </div>
+        <div class="about-section">
+            <img src="virtual labs6.png" class="about-image" alt="Why Choose Us">
+            <h2>Why Choose Us?</h2>
+            <p>700+ experiments in multiple disciplines, government-backed initiative.</p>
         </div>
     </div>
-    <div class="scrolling-logos">
-        <div>
-            <img src="logo1.png">
-            <img src="logo2.png">
-            <img src="logo3.png">
-            <img src="logo4.png">
-            <img src="logo5.png">
-            <img src="logo6.png">
-            <img src="logo7.jpg">
-            <img src="logo8.png">
-            <img src="logo9.png">
-            <img src="logo1.png">
-            <img src="logo2.png">
-            <img src="logo3.png">
-            <img src="logo4.png">
-            <img src="logo5.png">
-            <img src="logo6.png">
-            <img src="logo7.jpg">
-            <img src="logo8.png">
-            <img src="logo9.png">
-            <img src="logo1.png">
-            <img src="logo2.png">
-            <img src="logo3.png">
-            <img src="logo4.png">
-            <img src="logo5.png">
-            <img src="logo6.png">
-            <img src="logo7.jpg">
-            <img src="logo8.png">
-            <img src="logo9.png">
-        </div>
-    </div>
-    <div class="contact-section text-center p-5 bg-dark text-white mt-5">
+    <div class="contact-section text-center p-4 bg-light mt-5">
         <h2>Contact Us</h2>
-        <p><strong>Venkatesh Choppella, Associate Professor</strong></p>
-        <p>IIIT HYDERABAD</p>
-        <p>Email: <a href="mailto:venkatesh.choppella@iiit.ac.in" class="text-white">venkatesh.choppella@iiit.ac.in</a></p>
+        <p><strong>Venkatesh Choppella, Associate Professor, IIIT Hyderabad</strong></p>
+        <p>+914066531000 Ext:1443</p>
+        <p>Email: <a href="mailto:venkatesh.choppella@iiit.ac.in">venkatesh.choppella@iiit.ac.in</a></p>
     </div>
-    
-    <script>
-        let images = document.querySelectorAll(".slideshow-container img");
-        let index = 0;
-
-        function changeSlide(step) {
-            images[index].classList.remove("active");
-            index = (index + step + images.length) % images.length;
-            images[index].classList.add("active");
-        }
-        
-        setInterval(() => changeSlide(1), 5000);
-    </script>
-    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
 </body>
 </html>
